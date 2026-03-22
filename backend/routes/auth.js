@@ -9,8 +9,7 @@ router.post("/login", (req, res) => {
   const { email, password } = req.body;
 
   db.query(
-    "SELECT * FROM admin WHERE email = ?",
-    [email],(err, results) => {
+    "SELECT * FROM admin WHERE email = ?", [email],(err, results) => {
       if (err) {
         console.error(err);
         return res.status(500).json({ msg: "Server error" });
